@@ -1,0 +1,26 @@
+{
+  "name": "back_end_testing",
+  "version": "1.0.0",
+  "description": "lab 07 backend testing with APIs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SianCulligan/back_end_testing.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SianCulligan/back_end_testing/issues"
+  },
+  "homepage": "https://github.com/SianCulligan/back_end_testing#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "superagent": "^5.2.1"
+  }
+}
