@@ -47,8 +47,6 @@ function locationHandler(request, response){
   }
 }
 
-// let allWeather=[];
-
 function weatherHandler(request, response) {
   let latitude = request.query.latitude;
   let longitude = request.query.longitude;
@@ -79,7 +77,7 @@ function eventfulHandler(request, response) {
     });
 }
 
-//destructuring: After looking at the results of 
+//destructuring: CHECK LINE 68* After looking at the results of request.query.______, take the result keys and create a line where you open an object {}, and fill it with needed key(s), equals out to request.query;
 
 
 
