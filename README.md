@@ -3,21 +3,22 @@
 **Version**: 1.0.0 
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
 As a user, I want more info about a specified city, including a map, weather, movies, events, and trails.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
 Clone this repo: https://github.com/SianCulligan/lab-06-back-end
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+We built a location object and weather object that transverses difference Json files for information requested, that then passes it to the static front end.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+ Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+01-18-2020 4:20pm: App now has working location & weather data. Hooray.
+01-22-2020: 7:15pm: App now has API functionality & Event details
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+Give credit (and a link) to other people or resources that helped you build this application.
