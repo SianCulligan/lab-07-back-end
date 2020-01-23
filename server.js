@@ -20,7 +20,7 @@ app.get('/', (request, response) => {
 //Xrun npm init
 //Xrun npm install w/ express, cors, superagent
 
-//list out routes
+//list out routes...
 app.get('/location', locationHandler);
 app.get('/weather', weatherHandler);
 app.get('/events', eventfulHandler);
