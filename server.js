@@ -20,7 +20,7 @@ app.get('/', (request, response) => {
 //Xrun npm init
 //Xrun npm install w/ express, cors, superagent
 
-//list out routes
+//list out routes...
 app.get('/location', locationHandler);
 app.get('/weather', weatherHandler);
 app.get('/events', eventfulHandler);
@@ -72,7 +72,7 @@ function eventfulHandler(request, response) {
   superagent.get(url)
     .then(data => {
       let eventfulData = JSON.parse(data.text).events.event;
-      //   console.log(eventfulData);
+      console.log(eventfulData);
       const eventsArr = eventfulData.map(value => new Event(value));
       response.send(eventsArr);
     });
