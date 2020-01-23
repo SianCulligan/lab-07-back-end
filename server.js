@@ -66,17 +66,48 @@ function weatherHandler(request, response) {
 }
 
 
-
 function eventfulHandler(request, response) {
-  const url = `http://api.eventful.com/json/events/search?location=${locationObj.search_query}&app_key=${process.env.EVENTFUL_API_KEY}`;
+  let {search_query}=request.query;
+  // console.log(request.query);
+  let url = `http://api.eventful.com/json/events/search?location=${search_query}&app_key=${process.env.EVENTFUL_API_KEY}`;
   superagent.get(url)
-    .then(results => {
-      let eventsArr = JSON.parse(results.text).events.event;
-      const finalEventsArr = eventsArr.map(value => new Eventful(value));
-      response.send(finalEventsArr);
-    })
-    .catch(error => console.error(error));
+    .then(data => {
+      let eventfulData = JSON.parse(data.text).events.event;
+      console.log(eventfulData);
+      const eventsArr = eventfulData.map(value => new Event(value));
+      response.send(eventsArr);
+    });
 }
+
+//destructuring: After looking at the results of 
+
+
+
+
+
+//     e));
+
+//     console.log(eventsArr);
+//       }
+//       .catch(error => console.error(error));
+//   }
+
+//   response.send(allEvent);
+// }
+// catch(error){
+//   errorHandler('Not today, satan.', request, response);
+// }
+// })
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,13 +127,12 @@ function Weather (day) {
 //   allWeather.push(this);
 }
 
-function Eventful (area){
-  this.link = area.url;
-  this.name = area.title;
-  this.event_date = area.start_time;
-  this.summary = area.description;
+function Event (object){
+  this.link = object.url ;
+  this.name = object.title ;
+  this.event_date = object.start_time ;
+  this.summary = object.description;
 }
-
 
 
 
@@ -138,18 +168,3 @@ app.listen(PORT, () => console.log(`Server up on port ${PORT}`));
 //     errorHandler('Not today, satan.', request, response);
 //   }
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
