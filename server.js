@@ -47,6 +47,7 @@ function locationHandler(request, response){
   }
 }
 
+
 function weatherHandler(request, response) {
   let latitude = request.query.latitude;
   let longitude = request.query.longitude;
@@ -71,44 +72,13 @@ function eventfulHandler(request, response) {
   superagent.get(url)
     .then(data => {
       let eventfulData = JSON.parse(data.text).events.event;
-      console.log(eventfulData);
+      //   console.log(eventfulData);
       const eventsArr = eventfulData.map(value => new Event(value));
       response.send(eventsArr);
     });
 }
 
-//destructuring: CHECK LINE 68* After looking at the results of request.query.______, take the result keys and create a line where you open an object {}, and fill it with needed key(s), equals out to request.query;
-
-
-
-
-
-//     e));
-
-//     console.log(eventsArr);
-//       }
-//       .catch(error => console.error(error));
-//   }
-
-//   response.send(allEvent);
-// }
-// catch(error){
-//   errorHandler('Not today, satan.', request, response);
-// }
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
+//destructuring: CHECK LINE 68* After looking at the results of request.query.______, take the result keys and create a line where you open an object {}, and fill it with needed key(s), equals out to request.query; THANKS LENA!
 
 
 //constructors
@@ -122,7 +92,6 @@ function Location(city, geoData){
 function Weather (day) {
   this.forecast = day.summary;
   this.time = new Date(day.time * 1000).toDateString();
-//   allWeather.push(this);
 }
 
 function Event (object){
@@ -133,36 +102,12 @@ function Event (object){
 }
 
 
-
-
-
 //helper functions (error catching)
 function errorHandler(error, request, response) {
   response.status(500).send(error);
 }
 
 
-
-
 //server "listener"
 app.listen(PORT, () => console.log(`Server up on port ${PORT}`));
 
-
-
-
-//route definitions app.get
-
-
-
-
-// app.get('/location', (request, response) => {
-//   try{
-//     const geoData = require('./data/geo.json');
-//     const city = request.query.city;
-//     const locationData = new Location(city, geoData);
-//     response.send(locationData);
-//   }
-//   catch(error){
-//     errorHandler('Not today, satan.', request, response);
-//   }
-// })
